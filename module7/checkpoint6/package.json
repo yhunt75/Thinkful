@@ -1,0 +1,16 @@
+{
+  "name": "package-json-practice",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "Yolanda Hunt",
+  "license": "ISC",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "description": "This is the description for module 6 checkpoint 6."
+}
