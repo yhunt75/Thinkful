@@ -25,165 +25,28 @@ function getTotalNumberOfBorrows(account, books) {
   })
   console.log(count);
   return count;
+
 }
-
-
- // should return all of the books taken out by an account with the author embedded
- 
-//  function getBooksPossessedByAccount(account, books, authors) {
-//   //  console.log(books);
-
-//   // find borrower
-//   let borrower = account.id; //  result 5f446f2ed3609b719568a415
-//   console.log("borrower: " + borrower);
-//   console.log("  ");
-
-//   // find borrowed book
-//   let borrowed = [];
-//   books.filter((book) => {
-//     book.borrows.filter((borrow) => { // accessing embedded object where the borrower id is located
-//       if(borrow.id === borrower) {
-//         Object.entries(book).map(([key, value]) => { return borrowed = { authorId: book.authorId, title: book.title }});
-//       }
-//     });
-//   });
-//   console.log("======== borrowed book ========");
-//   console.log(borrowed);  // { authorId: 10, title: 'esse ea veniam non occaecat' }
-//   console.log("  ");
-
-//   // find author
-//   authorOfBook = authors.find((author) => author.id === borrowed.authorId);
-//   console.log("======== author of book ========");
-//   console.log(authorOfBook);  //{ id: 10, name: { first: 'Giles', last: 'Barlow' } }
-//   console.log("  ");
-
-// //  combine title and embed author as a sub object
-//   let bookAndAuthor = [];
-//   Object.entries(borrowed,authorOfBook).map(([key, value]) => { return bookAndAuthor = { title: borrowed.title,name: {first: authorOfBook.name.first, last: authorOfBook.name.last} }});
-  
-//   // const bookAndAuthor = books.find((book) => book.borrows.id === account.id );
-//   // console.log(bookAndAuthor);
-  
-
-//   // book and author
-//   console.log("======== book and author ========");
-//   console.log(bookAndAuthor); 
-//   console.log(" ");
-
-//   // // console.log output with author information embedded
-//   // // {
-//   // //   title: 'esse ea veniam non occaecat',
-//   // //   name: { first: 'Giles', last: 'Barlow' }
-//   // // }
- 
-//   let result = [];
-//   result.push(bookAndAuthor);
-//   console.log("======== final output ========");
-//   console.log(result);
-//   console.log(" ");
-//   return result;
-// }
 
  // should return all of the books taken out by an account with the author embedded
  function getBooksPossessedByAccount(account, books, authors) {
-  let books_taken = [];
+  let books_taken = []; // create array for books taken by account.id
+
+  // book info
   books.forEach(book=>{
     if (book.borrows.find(item=>item.id === account.id && !item.returned)) {
       books_taken.push(book);
     }
   })
-  console.log("======== books taken ========");
-  console.log(books_taken);
-  console.log(" ");
-/*  output
-  ======== books taken ========
-[
-  {
-    id: '5f4471329627160be1e8ce92',
-    title: 'esse ea veniam non occaecat',
-    genre: 'Classics',
-    authorId: 10,
-    borrows: [ [Object], [Object], [Object], [Object] ]
-  }
-]
-
-*/
 
   // add author info
   books_taken.forEach(book=>{
     let anAuthor = authors.find(person => person.id === book.authorId);
     book['author'] = anAuthor;
   })
-  console.log("======== author info embedded ========");
-  console.log(books_taken);
-  console.log(" ");
 
-  /*  output of books_taken
-    ======== author info embedded ========
-[
-  {
-    id: '5f4471329627160be1e8ce92',
-    title: 'esse ea veniam non occaecat',
-    genre: 'Classics',
-    authorId: 10,
-    borrows: [ [Object], [Object], [Object], [Object] ],
-    author: { id: 10, name: [Object] }
-  }
-]  
-
-  */
- 
   return books_taken;
 }
-
-/* **************   Code from ThinkChat tutor (doesn't work)  *****************
-
-function getAuthorById(authors, authorId) {
-  console.log(authors.find(author => author.id === authorId));
-  return authors.find(author => author.id === authorId);
-}
-
-function getBooksPossessedByAccount(account, books, authors) {
-// console.log(books);
-  // next we will use an array
-
-  const result = [];
-
-  // we will use this array in a moment
-
-  // next we need a for loop to iterate through books
-
-  for (let i = 0; i < books.length; i++) {
-
-      // now we use filter method it will make things easier
-
-      const match = books[i].borrows.filter((borrow) => borrow.id === account.id && borrow.returned === false);
-
-      // now we check if match is empty or not
-
-      if (match.length > 0) {
-
-          let bookResult = books.title;
-           console.log(books.author) ;
-          bookResult['authors'] = getAuthorById(authors, books.authorId);
-          // console.log(bookResult);
-
-          // finally pushing into the array
-
-          // we created earlier
-
-          result.push(bookResult);
-
-          // if statement closed
-      }
-      // for loop closed
-  }
-  console.log(result);
-  return result;
-
-  // close function
-}
-*/
 
 module.exports = {
   findAccountById,
