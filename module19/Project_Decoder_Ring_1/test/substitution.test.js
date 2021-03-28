@@ -3,49 +3,39 @@ const expect = require("chai").expect;
 const substitutionModule = require("../src/substitution.js");
 
 describe("substitution", () => {
-    it("Error Handling: should return false if the substitution alphabet is missing", () => {
-        const expected = false;
-        const actual = substitutionModule("thinkful");
-        expect(actual).to.eql(expected); 
+    it("should encode a message by using the given substitution alphabet", () => {
+        const expected = "jrufscpw";
+        const actual = substitutionModule("thinkful", "xoyqmcgrukswaflnthdjpzibev");
+        expect(actual).to.equal(expected);
     });
-    it("Error Handling: should return false if the substitution alphabet is not exactly 26 characters", () => {
-        const expected = "false";
-        const actual = substitutionModule("message");
-        expect(actual).to.eql(expected); 
-    });
-    it("Error Handling: should return false if the substitution alphabet does not contain unique characters", () => {
-        const expected = "false";
-        const actual = substitutionModule("message");
-        expect(actual).to.eql(expected); 
-    });
-    it("Encode: should encode a message by using the given substitution alphabet", () => {
-        const expected = "ykrrpik";
-        const actual = substitutionModule("message");
-        expect(actual).to.eql(expected); 
-    });
-    it("Encode: should work with any kind of key with unique characters", () => {
-        const expected = "message";
-        const actual = substitutionModule("ysii.rs");
+    it("should preserve spaces", () => {
+        const expected = "elp xhm xf mbymwwmfj dne";
+        const actual = substitutionModule("You are an excellent spy", "xoyqmcgrukswaflnthdjpzibev");
         expect(actual).to.equal(expected); 
     });
-    it("Encode: should preserve spaces", () => {
-        const expected = "my message";
-        const actual = substitutionModule("yp ysii.rs");
-        expect(actual).to.eql(expected); 
+    it("should work with any kind of key with unique characters", () => {
+        const expected = "thinkful";
+        const actual = substitutionModule("jrufscpw", "xoyqmcgrukswaflnthdjpzibev", false);
+        expect(actual).to.equal(expected); 
     });
-    it("Decode: should decode a message by using the given substitution alphabet", () => {
+    it("should encode a message by using the given substitution alphabet", () => {
+        const expected = "y&ii$r&";
+        const actual = substitutionModule("message", "$wae&zrdxtfcygvuhbijnokmpl");
+        expect(actual).to.equal(expected); 
+    });
+    it("should work with any kind of key with unique characters", () => {
         const expected = "message";
-        const actual = substitutionModule("ykrrpik");
-        expect(actual).to.eql(expected); 
+        const actual = substitutionModule("y&ii$r&", "$wae&zrdxtfcygvuhbijnokmpl", false);
+        expect(actual).to.equal(expected); 
     });
-    it("Decode: should work with any kind of key with unique characters", () => {
-        const expected = "message";
-        const actual = substitutionModule("ysii.rs");
-        expect(actual).to.eql(expected); 
+    it("should return false if the substitution alphabet is missing", () => {
+        const expected = false;
+        const actual = substitutionModule("thinkful", "short");
+        expect(actual).to.equal(expected); 
     });
-    it("Decode: should preserve spaces", () => {
-        const expected = "my message";
-        const actual = substitutionModule("yp ysii.rs");
-        expect(actual).to.eql(expected); 
+    it("should return false if the substitution alphabet does not contain unique characters", () => {
+        const expected = false;
+        const actual = substitutionModule("thinkful", "abcabcabcabcabcabcabcabcyz");
+        expect(actual).to.equal(expected); 
     });
 });

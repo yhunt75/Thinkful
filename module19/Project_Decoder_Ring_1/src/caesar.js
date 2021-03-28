@@ -25,15 +25,21 @@ const caesarModule = (function () {
     let shiftValue = 0;
 
     // invalid shift data
-    if(!shift || shift > 25 || shift < -25) return false;
+    if(!shift || shift > 25 || shift < -25) {
+      console.log(`shift: ${shift}`);
+      return false;
+    }
 
-    for(let i =0; i < input.length; i++) {
+    for(let i = 0; i < input.length; i++) {
       let inputCode = input.toLowerCase().charCodeAt(i);
       let inputCharacter = input[i];
 
+      // adding or substracting shift depending upon whether or not encode is true or false
       encode === true ? shiftValue = inputCode + shift : shiftValue = inputCode - shift;
+
       if (encode){
-        if(inputCode >= 65 && inputCode <= 122) {
+        // upper: A = 65, Z = 90
+        if(inputCode >= 65 && inputCode <= 90) {
           inputCharacter = String.fromCharCode(((shiftValue - 65 ) % 26) + 65);
           } // end if for upper
   
@@ -44,17 +50,17 @@ const caesarModule = (function () {
 
       } // end outer if
       if(!encode){
-        let temp = inputCode - 97 - shift;
+        let temp = inputCode - 97 - shift;    // results in a negative number in some cases
         // console.log(`temp:     ${temp}`);
         // console.log(`inputCode: ${inputCode}`);
         // console.log(`shiftValue: ${shiftValue}`);
         if( shiftValue >= 65 && shiftValue <= 122) { 
           inputCharacter = String.fromCharCode(shiftValue); 
         } //end if
-        if( shiftValue < 65) { 
-          inputCharacter = String.fromCharCode(shiftValue); 
-        }
-        if (temp >= 0){
+        // if( shiftValue < 65) { 
+        //   inputCharacter = String.fromCharCode(shiftValue); 
+        // }
+        if (temp >= 0){                         // handles cases temp >=0
           inputCharacter = String.fromCharCode(temp % 26 + 97);
         } else if (inputCode < 65 ){
           inputCharacter = String.fromCharCode(inputCode); 
