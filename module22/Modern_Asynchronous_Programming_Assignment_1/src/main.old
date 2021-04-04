@@ -1,0 +1,58 @@
+const axios = require("../utils/axios");
+const BASE_URL = "http://localhost:5000";
+
+
+function isValid({ id, name, meaning, quadrant, starsWithPlanets }) {
+  return id && name && meaning && quadrant && starsWithPlanets;
+}
+
+async function update(constellation) {
+  const id = constellation.id;
+  const url = `${BASE_URL}/constellations/${id}`;
+
+  try {
+    return await axios.put(url, constellation);
+  } catch (error) {
+    console.log(`Updating constellation (id: ${id}) failed.`);
+  }
+}
+
+async function bulkImport(constellations) {
+  
+  let url = "";
+  let constellation = "";
+  let finalResult = [];
+  
+  // check to see if it is an array
+  try {
+    if(!Array.isArray(constellations)) {
+      return Promise.reject(false);
+    }
+  } catch ( error ) {
+    console.log(`Inputted argument must be an array.`);
+  }
+
+  // check to see if the constellations are valid
+  let result = constellations.every((constellation) => isValid(constellation));
+  try {
+    if( !result ) {
+      return Promise.reject(false);
+    }
+  } catch ( error ) {
+    console.log(`All constellations must include relevant fields.`);
+  }
+
+  // loop through the constellations and use put to update
+  for (let i = 0; i < constellations.length; i++) {
+    let id = constellations[i].id;
+    constellation = constellations[i];
+    url = `${BASE_URL}/constellations/${id}`;
+    // let finalResult = axios.put( url, constellations[i]);
+    await axios.put( url, constellations[i]);
+    console.log(finalResult);
+    // await update(constellations[i]);
+  };
+  return;
+}
+
+module.exports = { bulkImport, update };

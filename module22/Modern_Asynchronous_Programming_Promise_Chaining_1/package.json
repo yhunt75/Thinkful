@@ -13,7 +13,7 @@
     "docker:stop": "docker stop $(docker ps -q)",
     "docker:test": "docker run -it thinkful-ed/zid-wr-modern-asynchronous-programming-01-promise-chaining npm test",
     "start:solution": "npm run -it docker:build && npm run docker:run",
-    "test": "jest",
+    "test": "nyc --reporter=text mocha test",
     "test:solution": "npm run docker:build && npm run docker:test"
   },
   "keywords": [],
