@@ -1,0 +1,23 @@
+{
+  "name": "Mock_Interview_Web_Requests_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nyc --reporter=text mocha test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
