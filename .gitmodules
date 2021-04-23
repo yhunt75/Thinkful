@@ -1,0 +1,3 @@
+[submodule "module25/starter-mobile-first-development"]
+	path = module25/starter-mobile-first-development
+	url = https://github.com/yhunt75/Thinkful/tree/main/module25
