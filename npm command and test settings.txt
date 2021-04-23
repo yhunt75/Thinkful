@@ -1,4 +1,4 @@
-npm init -y; npm install --save-dev mocha chai; npm install --save-dev nyc
+npm init -y; npm install --save-dev mocha chai; npm install --save-dev nyc; npm i axios
 
 
 "test": "nyc --reporter=text mocha test",
