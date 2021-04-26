@@ -53,15 +53,27 @@ main img {
 /* -------  Navigation ------- */
 
 header {
+  display: flex;
   background-color: #ff385c;
   padding: 20px 20px 0 20px;
   text-align: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .logo {
   font-family: "Pangolin", cursive;
   font-size: 72px;
   color: #fff;
+}
+
+header nav {
+  justify-content: center;
+}
+
+header nav ul {
+  padding-bottom: 0px;
+  max-width: 25%;
 }
 
 header nav ul li {
@@ -79,13 +91,59 @@ header nav ul li a:hover {
   text-decoration: none;
 }
 
+/* Mobile first */
+.wrapper {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.group {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.group img {
+  width: 100%;
+}
+
+.flex-start {
+  align-content: flex-start;
+}
+
+.item {
+  /* flex: 3; */
+  flex-direction: row;
+  margin: 10px;
+}
+
+.item1 {
+  order: 1;
+}
+
+.item2 {
+  order: 2;
+}
+
+.item3 {
+  order: 3;
+}
+
+.item4 {
+  order: 4;
+}
+
 /* -------  Search Form ------- */
 form {
   border: 2px solid #ff385c;
   padding: 10px;
+  font-family: 'CentraNo2',sans-serif;
 }
 
 form label {
+  display: inline-block;
+  color: #282e33;
+  margin-bottom: 8px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -93,6 +151,13 @@ form select,
 form input {
   margin-bottom: 20px;
   width: 180px;
+  background: #FFF;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  color: #282e33;
+  font-size: 12px;
+  line-height: 1em;
+  padding: 12px;
 }
 
 form button {
@@ -107,6 +172,8 @@ form button {
 /* -------  Footer ------- */
 
 footer {
+  color: #282e33;
+  font-size: 12px;
   background-color: #ff385c;
 }
 
@@ -117,3 +184,17 @@ footer p {
 }
 
 /* -------  Media Query ------- */
+@media all and (min-width: 800px) {
+  /* .group {
+    display: flex;
+  }   */
+
+  form {
+    display: flex;
+    padding: 0 20px 0 0;
+  }
+
+  .flex-start {
+    align-content: flex-start;
+  }
+}
