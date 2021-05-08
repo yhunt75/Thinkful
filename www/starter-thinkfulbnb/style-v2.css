@@ -1,0 +1,159 @@
+/* -------  General Styles ------- */
+
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  p {
+    line-height: 1.5em;
+    margin: 0;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  
+  section.alternate-background {
+    background-color: #00a699;
+    color: #fff;
+  }
+  
+  main img {
+    width: 100%;
+    margin: 0 20px 20px 0px;
+  }
+  
+  /* ---  Groups & Items --- */
+  
+  .group {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+  }
+
+  .group img {
+    width: 100%;
+  }
+  
+  .flex-start {
+    align-items: flex-start;
+  }
+  
+  .item {
+      flex: 1;
+  }
+
+
+  /* -------  Navigation ------- */
+  
+  header {
+    background-color: #ff385c;
+    padding: 20px 20px 0 20px;
+    text-align: center;
+  }
+  
+  .logo {
+    font-family: "Pangolin", cursive;
+    font-size: 72px;
+    color: #fff;
+  }
+
+  header nav ul {
+    display:flex;
+    margin: 10px 0px 15px 50px;
+    padding-bottom: 0px;
+    max-width: 25%;
+  }
+  
+  header nav ul li {
+    list-style-type: none;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 20px 0 0;
+  }
+  
+  header nav ul li a:hover {
+    color: #bdbdbd;
+    text-decoration: none;
+  }
+  
+  /* -------  Search Form ------- */
+
+  form {
+    border: 2px solid #ff385c;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .form-data {
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .align-left {
+    /* margin: 10px 20px 30px 15px; */
+    align-items: flex-start;
+  }
+
+  .align-right { 
+    margin: 0px 15px 20px 0px;
+    float: right;
+  }
+
+  /* form div {
+    width: 100%;
+  } */
+
+  form label {
+    font-weight: bold;
+    text-align: start;
+    margin-left: 15px;
+    margin-top: 0px;
+    /* margin: 10px 20px 30px 15px; */
+  }
+  
+  form select, form input {
+    width: 50%;
+    margin-right: 15px;
+  }
+
+  form button {
+    background-color: #ff385c;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  /* -------  Footer ------- */
+  
+  footer {
+    background-color: #ff385c;
+  }
+  
+  footer p {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* -------  Media Query ------- */
