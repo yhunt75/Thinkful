@@ -1,0 +1,206 @@
+/* -------  General Styles ------- */
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 10px 10px 10px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.5em;
+  margin: 0;
+}
+
+section {
+  padding: 20px;
+}
+
+section.alternate-background {
+  background-color: #00a699;
+  color: #fff;
+}
+
+main img {
+  width: 100px;
+}
+
+/* ---  Groups & Items --- */
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.item {
+  flex: 1;
+  margin: 10px;
+}
+
+
+
+/* -------  Navigation ------- */
+
+header {
+  display: flex;
+  background-color: #ff385c;
+  padding: 20px 20px 0 20px;
+  text-align: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.logo {
+  font-family: "Pangolin", cursive;
+  font-size: 72px;
+  color: #fff;
+}
+
+nav {
+  text-align: center;
+}
+header nav ul {
+  display:flex;
+  /* align-content: center; */
+  padding-bottom: 0px;
+  max-width: 25%;
+}
+
+header nav ul li {
+  list-style-type: none;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 20px 0 0;
+}
+
+header nav ul li a:hover {
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
+/* Mobile first */
+.wrapper {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.group {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.group img {
+  width: 100%;
+}
+
+.flex-start {
+  align-content: flex-start;
+}
+
+.item {
+  /* flex: 3; */
+  flex-direction: row;
+  margin: 10px;
+}
+
+.item1 {
+  order: 1;
+}
+
+.item2 {
+  order: 2;
+}
+
+.item3 {
+  order: 3;
+}
+
+.item4 {
+  order: 4;
+}
+
+/* -------  Search Form ------- */
+form {
+  border: 2px solid #ff385c;
+  padding: 10px;
+  font-family: 'CentraNo2',sans-serif;
+}
+
+form label {
+  display: inline-block;
+  color: #282e33;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+form select,
+form input {
+  margin-bottom: 20px;
+  width: 180px;
+  background: #FFF;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  color: #282e33;
+  font-size: 12px;
+  line-height: 1em;
+  padding: 12px;
+}
+
+form button {
+  background-color: #ff385c;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  padding: 15px;
+  width: 100%;
+}
+
+/* -------  Footer ------- */
+
+footer {
+  color: #282e33;
+  font-size: 12px;
+  background-color: #ff385c;
+}
+
+footer p {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* -------  Media Query ------- */
+@media all and (min-width: 800px) {
+  header {
+    display: flex;
+    background-color: #ff385c;
+    padding: 20px 20px 0 20px;
+    text-align: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+
+  form {
+    display: flex;
+    padding: 0 20px 0 0;
+  }
+
+  .flex-start {
+    align-content: flex-start;
+  }
+}
