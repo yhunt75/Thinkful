@@ -5,11 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "type": "pwa-node",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/module22/Mock_Interview_Web_Requests_3/src/solution.js",
+            "runtimeExecutable": "/Users/yhunt/.nvm/versions/node/v14.15.4/bin/node"
         }
     ]
 }
