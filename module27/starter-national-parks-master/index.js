@@ -117,5 +117,5 @@ const main = document.querySelector("main");
 // Select a single park
 const park = main.querySelector(".park-display");
 
-// Remove that park
-main.removeChild(park);
+// // Remove that park
+// main.removeChild(park);
